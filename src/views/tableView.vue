@@ -16,7 +16,11 @@
                 <th>telefon</th>
               </tr>
             </thead>
-            <tbody v-for="list in list" :key="list.id">
+            <tbody
+              v-for="(list, i) in list"
+              :key="list.id"
+              :class="{ odd: i % 2 === 0, even: i % 2 === 1 }"
+            >
               <tr>
                 <td>{{ list.firstname }}</td>
                 <td>{{ list.surname }}</td>
@@ -131,10 +135,10 @@ thead th {
   color: #fff;
   width: 25%;
 }
-tbody tr:nth-child(odd) {
+.odd {
   background-color: #3a3d57;
 }
-tbody tr:nth-child(even) {
-  background-color: #565657;
+.even {
+  background-color: #494d6e;
 }
 </style>
